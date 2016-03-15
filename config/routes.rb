@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :subjects, except: [:new, :edit]
+  resources :session_resources, except: [:new, :edit]
+  resources :user_sessions, except: [:new, :edit]
+  resources :user_session_tokens, except: [:new, :edit]
+  resources :user_packages, except: [:new, :edit]
+  resources :packages, except: [:new, :edit]
+  resources :sessions, except: [:new, :edit]
+  resources :users, except: [:new, :edit]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

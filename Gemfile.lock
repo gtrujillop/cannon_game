@@ -94,7 +94,7 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    mysql2 (0.4.3)
+    mysql2 (0.3.19)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth (0.5.1)
@@ -205,7 +205,7 @@ DEPENDENCIES
   cucumber
   database_cleaner
   factory_girl_rails
-  mysql2
+  mysql2 (~> 0.3.18)
   pg (= 0.17.1)
   rails (= 4.2.0)
   rails-api
