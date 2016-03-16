@@ -10,6 +10,8 @@ gem 'sorcery'
 #gem 'validates_email_format_for'
 gem 'jwt'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 group :test do
   gem 'shoulda'
 end

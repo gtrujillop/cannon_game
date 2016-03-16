@@ -103,6 +103,7 @@ GEM
       rack (>= 1.2, < 3)
     pg (0.17.1)
     rack (1.6.4)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -200,6 +201,7 @@ DEPENDENCIES
   jwt
   mysql2 (~> 0.3.18)
   pg (= 0.17.1)
+  rack-cors
   rails (= 4.2.0)
   rails-api
   rails_12factor (= 0.0.2)

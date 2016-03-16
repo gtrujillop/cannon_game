@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  post 'authenticate' => 'auth#authenticate'
+  post 'auth' => 'auth#authenticate'
   resources :subjects, except: [:new, :edit]
   resources :session_resources, except: [:new, :edit]
   resources :user_sessions, except: [:new, :edit]
