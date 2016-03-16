@@ -197,6 +197,7 @@ DEPENDENCIES
   cucumber
   database_cleaner
   factory_girl_rails
+  jwt
   mysql2 (~> 0.3.18)
   pg (= 0.17.1)
   rails (= 4.2.0)

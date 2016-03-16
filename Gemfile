@@ -6,6 +6,9 @@ gem 'rails', '4.2.0'
 gem 'rails-api'
 
 gem 'sorcery'
+#gem 'devise', '~> 3.4.0'
+#gem 'validates_email_format_for'
+gem 'jwt'
 
 group :test do
   gem 'shoulda'
