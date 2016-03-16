@@ -21,7 +21,7 @@ group :development, :test do
   # Use mysql2 as the database for Active Record
   gem 'mysql2', '~> 0.3.18'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  #gem 'web-console', '~> 2.0'
 
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'

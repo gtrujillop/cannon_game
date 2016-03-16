@@ -1,5 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe UserPackage, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe UserPackage do
+
+  describe "relation with user" do
+    it { should belong_to(:user) }
+  end
+
+  describe "relation with package" do
+    it { should belong_to(:package) }
+  end
+
 end
+
