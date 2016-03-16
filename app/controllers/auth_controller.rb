@@ -11,8 +11,6 @@ class AuthController < ApplicationController
     end
   end
 
-  private
-
   def authentication_payload(user)
     return nil unless user && user.id
     {
@@ -20,4 +18,5 @@ class AuthController < ApplicationController
       user: { id: user.id, username: user.username } # return whatever user info you need
     }
   end
+  private :authentication_payload
 end
