@@ -15,7 +15,12 @@ class AuthController < ApplicationController
     return nil unless user && user.id
     {
       auth_token: AuthToken.encode({ user_id: user.id }),
-      user: { id: user.id, username: user.username } # return whatever user info you need
+      user: { id: user.id,
+              username: user.username,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              is_admin: user.is_admin }
     }
   end
   private :authentication_payload
