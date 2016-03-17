@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, uniqueness: true, format:  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
-  validates :auth_token, presence: true
+  validates :is_admin, presence: true
 
   scope :by_username, -> (username) { where("username = ?", "#{username}") }
   scope :by_password, -> (password) { where("password = ?", "#{password}") }

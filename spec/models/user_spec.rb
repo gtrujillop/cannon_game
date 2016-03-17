@@ -11,14 +11,14 @@ describe User do
       expect(User.new({username: "user_1", firstname: "Juan", lastname: "Perez", password: 'blah', email:'my_email@email.com'}).save).to be false
     end
 
-    it "fails because no auth_token" do
+    it "fails because no is_admin value" do
       expect(User.new({username: "user_1", firstname: "Juan", lastname:
                        "Perez", password: 'password_1', email:'my_email@email.com'}).save).to be false
     end
 
-    it "saves because password is valid" do
+    it "saves an user" do
       expect(User.new({username: "user_1", firstname: "Juan", lastname:
-                       "Perez", password: 'password_1', auth_token: 'asdasdasd', email:'my_email@email.com'}).save).to be true
+                       "Perez", password: 'password_1', is_admin: 'true', email:'my_email@email.com'}).save).to be true
     end
   end
 
@@ -26,7 +26,7 @@ describe User do
 
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
-    it { should validate_presence_of(:auth_token) }
+    it { should validate_presence_of(:is_admin) }
 
   end
 
