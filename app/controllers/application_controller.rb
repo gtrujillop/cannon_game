@@ -8,6 +8,7 @@ class AuthenticationTimeoutError < StandardError
 end
 
 class ApplicationController < ActionController::API
+  include ActionController::Serialization
   attr_reader :current_user
 
   # When an error occurs, respond with the proper private method below

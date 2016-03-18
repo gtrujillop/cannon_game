@@ -4,9 +4,7 @@ class SessionsController < ApplicationController
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = Session.all
-
-    render json: @sessions
+    render json: Session.all, each_serializer: SessionSerializer, root: false
   end
 
   # GET /sessions/1
