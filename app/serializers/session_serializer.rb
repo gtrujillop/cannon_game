@@ -1,5 +1,5 @@
 class SessionSerializer < ActiveModel::Serializer
-  attributes :id, :name, :start_date, :end_date
+  attributes :id, :name, :start_date, :end_date, :has_started
   attributes :package, :subject
 
   has_one :package, serializer: PackageSerializer
