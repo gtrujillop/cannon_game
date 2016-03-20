@@ -1,12 +1,14 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :update, :destroy]
+  # TODO Implement this on each request
+  # before_action :authenticate_request!
 
   # GET /packages
   # GET /packages.json
   def index
     @packages = Package.all
 
-    render json: @packages
+    render json: @packages, each_serializer: PackageSerializer, root: false
   end
 
   # GET /packages/1
@@ -54,6 +56,6 @@ class PackagesController < ApplicationController
     end
 
     def package_params
-      params.require(:package).permit(:name)
+      params.require(:package).permit(:name, :session_count)
     end
 end

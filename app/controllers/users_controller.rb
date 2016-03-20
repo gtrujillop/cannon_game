@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: @users, each_serializer: UserSerializer, root: false
   end
 
   # GET /users/1
@@ -54,6 +54,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :auth_token)
+      params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :is_admin)
     end
 end

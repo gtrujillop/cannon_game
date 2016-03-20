@@ -8,9 +8,12 @@ class User < ActiveRecord::Base
   validates :firstname, presence: true
   validates :lastname, presence: true
   validates :email, presence: true, uniqueness: true, format:  /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, on: :create
-  validates :username, presence: true, uniqueness: true, length: { maximum: 7}
-  validates :is_admin, presence: true
+  validates :username, presence: true, uniqueness: true, length: { maximum: 10}
+  # TODO Check why this validation fails
+  # validates :is_admin, presence: true
 
+  # Will only list only non admin users.
+  default_scope { where(is_admin: false) }
   scope :by_username, -> (username) { where("username = ?", "#{username}") }
   scope :by_password, -> (password) { where("password = ?", "#{password}") }
 
