@@ -8,3 +8,7 @@ Using rails-api gem and initialized with scaffolds
 create databases in mySQL: ls_development, ls_test, ls_cucumber
 clone this repository
 run rake db:migrate
+
+After confirm migratons, run the server
+
+e.g rails s -p 3001
