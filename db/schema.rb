@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315062119) do
+ActiveRecord::Schema.define(version: 20160318214728) do
 
   create_table "packages", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -30,13 +30,14 @@ ActiveRecord::Schema.define(version: 20160315062119) do
   add_index "session_resources", ["session_id"], name: "index_session_resources_on_session_id", using: :btree
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",        limit: 255
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "package_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "subject_id", limit: 4
+    t.integer  "package_id",  limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "subject_id",  limit: 4
+    t.boolean  "has_started", limit: 1
   end
 
   add_index "sessions", ["package_id"], name: "index_sessions_on_package_id", using: :btree
@@ -85,9 +86,9 @@ ActiveRecord::Schema.define(version: 20160315062119) do
     t.string   "lastname",   limit: 255
     t.string   "email",      limit: 255
     t.string   "password",   limit: 255
-    t.string   "auth_token", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.boolean  "is_admin",   limit: 1
   end
 
   add_foreign_key "session_resources", "sessions"

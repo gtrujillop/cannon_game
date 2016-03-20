@@ -6,6 +6,12 @@ gem 'rails', '4.2.0'
 gem 'rails-api'
 
 gem 'sorcery'
+#gem 'devise', '~> 3.4.0'
+#gem 'validates_email_format_for'
+gem 'jwt'
+
+gem 'rack-cors', :require => 'rack/cors'
+gem 'active_model_serializers', '~> 0.9.4'
 
 group :test do
   gem 'shoulda'
@@ -21,7 +27,7 @@ group :development, :test do
   # Use mysql2 as the database for Active Record
   gem 'mysql2', '~> 0.3.18'
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  #gem 'web-console', '~> 2.0'
 
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'

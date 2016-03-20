@@ -4,9 +4,7 @@ class SessionsController < ApplicationController
   # GET /sessions
   # GET /sessions.json
   def index
-    @sessions = Session.all
-
-    render json: @sessions
+    render json: Session.all, each_serializer: SessionSerializer, root: false
   end
 
   # GET /sessions/1
@@ -33,7 +31,7 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
 
     if @session.update(session_params)
-      head :no_content
+      render json: @session, root: false
     else
       render json: @session.errors, status: :unprocessable_entity
     end
@@ -54,6 +52,6 @@ class SessionsController < ApplicationController
     end
 
     def session_params
-      params.require(:session).permit(:name, :start_date, :end_date, :package_id)
+      params.require(:session).permit(:name, :start_date, :end_date, :package_id, :subject_id, :has_started)
     end
 end

@@ -6,7 +6,7 @@ class SubjectsController < ApplicationController
   def index
     @subjects = Subject.all
 
-    render json: @subjects
+    render json: @subjects, each_serializer: SubjectSerializer, root: false
   end
 
   # GET /subjects/1
