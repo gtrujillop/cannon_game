@@ -18,10 +18,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
+    @user = User.new(user_params.except(:packages))
+    if @user.save && @user.save_packages(user_params[:packages])
+      render json: @user, serializer: UserSerializer, root: false,  status: :created, location: @user
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -54,6 +53,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :is_admin)
+      params.require(:user).permit(:username, :firstname, :lastname, :email, :password, :is_admin, :packages => [:package_id])
     end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :packages, except: [:new, :edit]
   resources :sessions, except: [:new, :edit]
   resources :users, except: [:new, :edit]
+  match 'users/:id/packages', to: 'packages#by_user', via: :get
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
