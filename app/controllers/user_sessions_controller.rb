@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
   def index
     @user_sessions = UserSession.all
 
-    render json: @user_sessions
+    render json: @user_sessions, root: false
   end
 
   # GET /user_sessions/1

@@ -7,6 +7,11 @@ class SessionsController < ApplicationController
     render json: Session.all, each_serializer: SessionSerializer, root: false
   end
 
+  def by_package_and_user
+    @sessions = Session.by_package_and_user(session_params[:package_id], session_params[:user_id])
+    render json: @sessions, each_serializer: SessionSerializer, root: false
+  end
+
   # GET /sessions/1
   # GET /sessions/1.json
   def show
@@ -52,6 +57,6 @@ class SessionsController < ApplicationController
     end
 
     def session_params
-      params.require(:session).permit(:name, :start_date, :end_date, :package_id, :subject_id, :has_started)
+      params.require(:session).permit(:name, :start_date, :end_date, :package_id, :subject_id, :has_started, :user_id)
     end
 end

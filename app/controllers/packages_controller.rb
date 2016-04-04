@@ -11,6 +11,15 @@ class PackagesController < ApplicationController
     render json: @packages, each_serializer: PackageSerializer, root: false
   end
 
+  def by_user
+    @packages = []
+    @user_packages = UserPackage.by_user(params[:id])
+    @user_packages.each do |user_package|
+      @packages << user_package.package
+    end
+    render json: @packages, each_serializer: PackageSerializer, root: false
+  end
+
   # GET /packages/1
   # GET /packages/1.json
   def show

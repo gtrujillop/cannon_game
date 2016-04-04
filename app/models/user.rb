@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_packages
   has_many :packages, through: :user_packages
+  accepts_nested_attributes_for :packages
   has_many :user_sessions
   has_many :sessions, through: :user_sessions
 
@@ -19,5 +20,15 @@ class User < ActiveRecord::Base
 
   def self.find_by_credentials(username, password)
     by_username(username).by_password(password).first
+  end
+
+  def save_packages(packages)
+    packages.each do |package|
+      package.merge!(user_id: id)
+      unless UserPackage.new(package).save
+        return false
+      end
+    end
+    true
   end
 end

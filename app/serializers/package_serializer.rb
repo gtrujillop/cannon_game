@@ -1,5 +1,10 @@
 class PackageSerializer < ActiveModel::Serializer
-  attributes :id, :name, :session_count
+  attributes :id, :name, :sessions, :session_count
+
+  def sessions
+    object.sessions
+  end
+  private :sessions
 
   def session_count
     object.sessions.count;
