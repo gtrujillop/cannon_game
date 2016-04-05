@@ -33,7 +33,7 @@ module Api::V1
       @package = Package.new(package_params)
 
       if @package.save
-        render json: @package, status: :created, location: @package
+        render json: @package, status: :created
       else
         render json: @package.errors, status: :unprocessable_entity
       end

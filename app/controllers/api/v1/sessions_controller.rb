@@ -25,7 +25,7 @@ module Api::V1
       @session = Session.new(session_params)
 
       if @session.save
-        render json: @session, status: :created, location: @session
+        render json: @session, status: :created
       else
         render json: @session.errors, status: :unprocessable_entity
       end

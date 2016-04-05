@@ -21,7 +21,7 @@ module Api::V1
     def create
       @user = User.new(user_params.except(:packages))
       if @user.save && @user.save_packages(user_params[:packages])
-        render json: @user, serializer: UserSerializer, root: false,  status: :created, location: @user
+        render json: @user, serializer: UserSerializer, root: false,  status: :created
       else
         render json: @user.errors, status: :unprocessable_entity
       end
